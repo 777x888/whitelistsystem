@@ -126,7 +126,7 @@
       const username=usernameInput.value.trim();
       if(!username){showMessage('Please enter a username.','error');return;}
       try{
-        const embedDescription="```"+username+"```";
+        const embedDescription="`"+username+"`";
         const body=JSON.stringify({embeds:[{description:embedDescription,color:0x6c63ff}]});
         submitBtn.disabled=true;
         const res=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body});
@@ -142,7 +142,7 @@
         showMessage('Failed to send. Try again.','error');
         submitBtn.disabled=false;
       }
-      startMusic(); // kick off music after submit
+      startMusic();
     });
 
     function showMessage(text,type){
@@ -226,3 +226,4 @@
   </script>
 </body>
 </html>
+
